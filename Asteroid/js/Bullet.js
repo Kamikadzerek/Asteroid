@@ -38,4 +38,4 @@ Bullet.draw = function(){
 		Game.ctx.closePath();
 		Game.ctx.fill();
 	}
-}
+};

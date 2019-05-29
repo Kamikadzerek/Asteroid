@@ -31,22 +31,22 @@ Game = {
 
 		Game.animationLoop();
 	},
-	onKey:function(event){
-		if(event.keyCode == 32 || event.keyCode == 37 || event.keyCode == 38 || event.keyCode == 39 ){
-			event.preventDefault();
+	onKey:function(ev){
+		if(ev.keyCode == 32 || ev.keyCode == 37 || ev.keyCode == 38 || ev.keyCode == 39 ){
+			
 			Game.key_32 = false;
-			if(event.type=='keydown' && !Game['key_'+event.keyCode]){
-				Game['key_'+event.keyCode] = true;
-				if(event.keyCode == 37){
+			if(ev.type=='keydown' && !Game['key_'+ev.keyCode]){
+				Game['key_'+ev.keyCode] = true;
+				if(ev.keyCode == 37){
 					Game.key_39 = false;
-				}else if(event.keyCode == 39){
+				}else if(ev.keyCode == 39){
 					Game.key_37 = false;
-				}else if (event.keyCode==32){
+				}else if (ev.keyCode==32){
 					console.log('new bullet')
 					new Bullet();
 				}
-			}else if(event.type=='keyup'){
-				Game['key_'+event.keyCode] = false;
+			}else if(ev.type=='keyup'){
+				Game['key_'+ev.keyCode] = false;
 			}
 		}
 
@@ -65,10 +65,10 @@ Game = {
 		Game.canvas.width = VAR.W;
 		Game.canvas.height = VAR.H;
 
-		Game.ctx.fillstyle = 'white';
-		Game.ctx.strokeStyle = 'white';
-		Game.ctx.lineWidth = 3;
-		Game.ctx.lineJoin = 'round';
+		Game.ctx.fillStyle = 'white'
+		Game.ctx.strokeStyle = 'white'
+		Game.ctx.lineWidth = 3
+		Game.ctx.lineJoin = 'round'
 	},
 	animationLoop:function(time){
 		requestAnimationFrame ( Game.animationLoop)
